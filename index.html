@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="modal-overlay"></div>
+<img class="modal-content" id="modal-img" src="" alt="">
+<div class="modal-close" id="modal-close">&times;</div>
+
+<div class="language-switch">
+  <a href="index-en.html">EN</a> |
+  <a href="index-ua.html">UA</a>|
+  <a href="index.html">RU</a> 
+</div>
+
+     <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="gallery.html">Галерея</a></li>
+      <li><a href="about.html">Обо мне</a></li>
+    </ul>
+  </nav>
+    <header class="hero">
+        <h1>Людмила Эль Килани</h1>
+        <p>Художник</p>
+    </header>
+
+      <section class="intro">
+    <p>
+      Здравствуйте и добро пожаловать на мой сайт.  
+      Здесь вы найдёте мои работы и немного узнаете обо мне.  
+      Искусство — мой способ чувствовать, передавать и делиться.
+    </p>
+    <div class="buttons">
+      <a href="gallery.html" class="btn">Смотреть работы</a>
+      <a href="about.html" class="btn">Обо мне</a>
+    </div>
+  </section>
+
+  <section class="favorites">
+    <h2>Избранное</h2>
+    <div class="gallery-grid">
+      <div class="artwork">
+        <img src="image/pastel11.jpg" alt="Работа 1">
+        <p></p>
+      </div>
+      <div class="artwork">
+        <img src="image/pastel21.jpg" alt="Работа 2">
+        <p></p>
+      </div>
+      <div class="artwork">
+        <img src="image/pastel12.jpg" alt="Работа 3">
+        <p></p>
+      </div>
+    </div>
+    <div class="more-button">
+      <a href="gallery.html" class="btn">Смотреть всю галерею</a>
+    </div>
+  </section>
+  
+
+    <footer>
+    <p>&copy; 2025 Людмила Эль Килани</p>
+  </footer>
+
+  <script>
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.getElementById('modal-close');
+  
+    // При клике на любую картинку
+    document.querySelectorAll('.artwork img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalOverlay.style.display = 'block';
+        modalImg.style.display = 'block';
+        modalClose.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // внутрь img.addEventListener
+        
+
+      });
+    });
+  
+    // Закрытие при клике по фону или кнопке
+    modalOverlay.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', closeModal);
+  
+    function closeModal() {
+      modalOverlay.style.display = 'none';
+      modalImg.style.display = 'none';
+      modalClose.style.display = 'none';
+      document.body.style.overflow = 'auto'; // внутри closeModal()
+
+    }
+  </script>
+</body>
+
+ 
+</html>
