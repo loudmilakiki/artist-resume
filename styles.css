@@ -11,15 +11,31 @@ body {
   display: flex;
   justify-content: center;
   padding: 20px;
+  flex-wrap: wrap; /* ✅ Позволяет переносить элементы */
   background-color: #f3e9e2;
   margin: 0;
+  padding: 0;
 }
+
 
 .navbar a {
   text-decoration: none;
   color: #444;
   margin: 0 15px;
   font-weight: bold;
+}
+
+
+/* Основной navbar */
+.navbar {
+  background-color: #f3e9e2;
+  padding: 20px;
+}
+
+
+
+.navbar li {
+  margin: 5px 10px;
 }
 
 .hero {
@@ -232,4 +248,14 @@ footer {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column; /*  Меню становится вертикальным */
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+}
 
