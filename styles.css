@@ -259,3 +259,38 @@ footer {
   }
 }
 
+.language-navbar {
+  background-color: #f3e9e2;
+  padding: 10px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.language-navbar a {
+  color: #5a3e36;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+.language-navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+
+  .language-navbar {
+    text-align: center;
+    font-size: 13px;
+  }
+}
+
