@@ -294,3 +294,28 @@ footer {
   }
 }
 
+.modal-prev, .modal-next {
+  display: none;
+  position: fixed;
+  top: 50%;
+  font-size: 48px;
+  color: white;
+  z-index: 102;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  padding: 10px;
+}
+
+.modal-prev {
+  left: 20px;
+}
+
+.modal-next {
+  right: 20px;
+}
+
+.modal-prev:hover, .modal-next:hover {
+  color: #ddd;
+}
+

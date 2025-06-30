@@ -66,36 +66,62 @@
     <p>&copy; 2025 Людмила Ель Кілані</p>
   </footer>
 
+  <div class="modal-prev">&#10094;</div>
+<div class="modal-next">&#10095;</div>
+
   <script>
+    const images = Array.from(document.querySelectorAll('.artwork img'));
     const modalOverlay = document.querySelector('.modal-overlay');
     const modalImg = document.getElementById('modal-img');
     const modalClose = document.getElementById('modal-close');
+    const modalPrev = document.querySelector('.modal-prev');
+    const modalNext = document.querySelector('.modal-next');
+    let currentIndex = 0;
   
-    // При клике на любую картинку
-    document.querySelectorAll('.artwork img').forEach(img => {
+    // Открытие модального окна
+    images.forEach((img, index) => {
       img.addEventListener('click', () => {
-        modalImg.src = img.src;
-        modalOverlay.style.display = 'block';
-        modalImg.style.display = 'block';
-        modalClose.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // внутрь img.addEventListener
-        
-
+        currentIndex = index;
+        openModal();
       });
     });
   
-    // Закрытие при клике по фону или кнопке
-    modalOverlay.addEventListener('click', closeModal);
-    modalClose.addEventListener('click', closeModal);
+    function openModal() {
+      modalImg.src = images[currentIndex].src;
+      modalOverlay.style.display = 'block';
+      modalImg.style.display = 'block';
+      modalClose.style.display = 'block';
+      modalPrev.style.display = 'block';
+      modalNext.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
   
     function closeModal() {
       modalOverlay.style.display = 'none';
       modalImg.style.display = 'none';
       modalClose.style.display = 'none';
-      document.body.style.overflow = 'auto'; // внутри closeModal()
-
+      modalPrev.style.display = 'none';
+      modalNext.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
+  
+    // Закрытие
+    modalOverlay.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', closeModal);
+  
+    // Переключение
+    modalPrev.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+    });
+  
+    modalNext.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+    });
   </script>
+  
+
 </body>
 
  
