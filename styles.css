@@ -6,6 +6,15 @@ body {
   text-align: center;
 }
 
+.fixed-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px; /* Измени по желанию */
+  z-index: 1000; /* Чтобы было поверх всего */
+  border-radius: 30px;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
@@ -80,7 +89,7 @@ footer {
 }
 
 .artwork {
-  max-width: 280px;
+  width: 260px;
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
