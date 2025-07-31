@@ -7,13 +7,16 @@ body {
 }
 
 .fixed-logo {
-  position: absolute;
+  position: fixed;      /* чтобы логотип не двигался при прокрутке */
   top: 20px;
   left: 20px;
-  width: 100px; /* Измени по желанию */
-  z-index: 1000; /* Чтобы было поверх всего */
-  border-radius: 30px;
+  width: 70px;          /* подбери комфортный размер */
+  height: auto;
+  z-index: 1000;
+  border-radius: 10px;  /* мягкое скругление */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* тень для объема */
 }
+
 
 .navbar ul {
   list-style: none;
